@@ -8,20 +8,14 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 <script>
-	(function(i, s, o, g, r, a, m) {
-		i['GoogleAnalyticsObject'] = r;
-		i[r] = i[r] || function() {
-			(i[r].q = i[r].q || []).push(arguments)
-		}, i[r].l = 1 * new Date();
-		a = s.createElement(o), m = s.getElementsByTagName(o)[0];
-		a.async = 1;
-		a.src = g;
-		m.parentNode.insertBefore(a, m)
-	})(window, document, 'script', '//www.google-analytics.com/analytics.js',
-			'ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	ga('create', 'UA-43780610-1', 'bris.ac.uk');
-	ga('send', 'pageview');
+  ga('create', 'UA-43780610-2', 'auto');
+  ga('send', 'pageview');
+
 </script>
 </head>
 <body id="s-home">
@@ -33,69 +27,58 @@
 				class="scroll">ABOUT</a><a href="#s-projects" class="scroll">PROJECTS</a><a
 				target="_blank" href="http://www.flickr.com/photos/alanfctor/"
 				class="js-dependent flick-dependent flickr-embedded">PHOTOGRAPHY</a><a
-				href="#s-contact" class="scroll">CONTACT</a><a href="#s-links"
-				class="scroll">LINKS</a>
+				href="#s-contact" class="scroll">CONTACT</a>
 		</nav>
 	</header>
+	<div style="background: bisque;padding: 1em;">Under a *very* slow construction...</div>
 
-	<section id="s-welcome" class="olakase">
-		<h1>Hi there!</h1>
-		<p>This site is, evidently, not finished, but it will be
-			eventually (I update it by small increments on my spare-time).</p>
+	<section id="s-welcome" class="section">
+		<h1></h1>
+		<p></p>
 	</section>
 
-	<section id="s-about" class="olakase">
+	<section id="s-about" class="section">
 		<h1>About</h1>
 		<p>
-			<em>XOCOATZIN</em> is a <a target="_blank"
-				href="http://en.wikipedia.org/wiki/Nahuatl">nahuatl</a> word that
-			translates to something like "little-chocolate".
+			
 		</p>
 	</section>
 
-	<section id="s-projects" class="olakase">
+	<section id="s-projects" class="section">
 		<h1>Projects</h1>
 		<section class="project">
-            <h2>Glass segmentation and reconstruction</h2>
+            <h2>Recognition and reconstruction of transparent objects for Augmented Reality</h2>
             <h3>Abstract</h3>
             <p>
-                Transparent objects are particularly challenging due to their lack 
-                of texture and features and the drastic changes in appearance they 
-                suffer as the background, illumination and camera pose change. This 
-                problem has been previously addressed by using structured light and
-                polarized light, depth sensors or by analyzing the distortions 
-                produced by the transparent object to the background. These 
-                methods require a carefully controlled environment, specialized 
-                hardware or might suffer of lack of information when a single 
-                image provide weak visual cues for the detection of such kind of objects. 
+                Dealing with real transparent objects for AR is challenging due to their lack of texture and visual features as well as the drastic changes in appearance as the background, illumination and camera pose change. The few existing methods for glass object detection usually require a carefully controlled environment, specialized illumination hardware or ignore information from different viewpoints.
             </p>
             <p>
-                We explore the use of learning methods combined with super-pixel 
-                segmentation to improve the analysis of single frames of a video 
-                sequence containing transparent objects. We use transparent rigid 
-                objects such as glass and plastic, from which we extract small image 
-                patches using graph-based segmentation that are used within a 
-                supervised learning method. We also integrate multiple views from a 
-                video stream to improve object detection when the conditions from a 
-                single view are not favorable. This method is a base for future work 
-                on modeling of transparent objects using color images.
+                In this work, we explore the use of a learning approach for classifying transparent objects from multiple images with the aim of both discovering such objects and building a 3D reconstruction to support convincing augmentations. We extract, classify and group small image patches using a fast graph-based segmentation and employ a probabilistic formulation for aggregating spatially consistent glass regions. We demonstrate our approach via analysis of the performance of glass region detection and example 3D reconstructions that allow virtual objects to interact with them
             </p>
             <h3>Links</h3>
             <ul>
+				<li><em>ISMAR 2014</em>
+					<a target="_blank"
+                    href="http://www.cs.bris.ac.uk/Publications/Papers/2001714.pdf">Paper <span class="link-ref">[cs.bris.ac.uk]</span></a>
+					<a target="_blank"
+                    href="https://app.box.com/s/ycpbvhekjporcuq2uxzb">Slides <span class="link-ref">[box.com]</span></a>
+					<a target="_blank"
+                    href="https://www.youtube.com/watch?v=0Js2jO9ZcXo&list=PL7sE-hbk1aO5bJ2BYLvknWcC3CSZk2Wgv">Videos <span class="link-ref">[youtube.com]</span></a>
+                </li>
                 <li><em>WARM 2014</em> <a target="_blank"
-                    href="https://app.box.com/s/i36bsd1zfu7b7modfkft">Slides [box.com]</a>
-                </li>  
+                    href="https://app.box.com/s/i36bsd1zfu7b7modfkft">Slides <span class="link-ref">[box.com]</span></a>
+                </li>
             </ul>
             <h3>Sponsors</h3>
             <ul>
                 <li> 
                     <a target="_blank" href="http://www.bristol.ac.uk/alumni/current-students/foundation/">
-                        <img alt="University of Bristol - The Alumni Foundation" src="http://www.alumni.bristol.ac.uk/publications/images/af-logos/af-bw-web.gif">
+                        University of Bristol, Alumni Foundation
                     </a>
                 </li>  
                 <li> 
                     <a target="_blank" href="http://www.conacyt.gob.mx/">
-                        <img alt="CONACYT" src="http://ierg.forestry.ubc.ca/files/2012/06/Logo_CONACYT_grande.jpg">
+                        CONACYT
                     </a>
                 </li>  
             </ul> 
@@ -180,7 +163,7 @@
 		</section>
 	</section>
 
-	<section id="s-contact" class="olakase">
+	<section id="s-contact" class="section">
 		<h1>Contact</h1>
 		<ul>
 			<li><em>Resum&eacute;</em> Available by request</li>
@@ -205,18 +188,7 @@
 		</ul>
 	</section>
 
-	<section id="s-links" class="olakase">
-		<h1>Links</h1>
-		<p>Here some links to some usefull projects</p>
-		<ul>
-			<li><em>The Mobile Robot Programming Toolkit</em>
-				<p>A library with a bunch of algorithms and utilities useful on
-					robotics-like projects. Integrates with OpenCV and PCL. (the
-					background image on this site was rendered using mrpt OpenGL
-					classes)</p> <a target="_blank" href="http://mrpt.org/">http://mrpt.org/</a></li>
-		</ul>
-	</section>
-
+	
 	<footer>
 		<h2>Alan Torres-G&oacute;mez</h2>
 		<br> <span class="email">Alan (d o t) TorresGomez (a t)

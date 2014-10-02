@@ -9,7 +9,7 @@ body {
 	background-size: 100%;
 }
 
-section.olakase {
+section.section {
 	padding: 1em 10em 5em 10em;
 	background-color: white;
 }
@@ -47,7 +47,7 @@ header h1 {
 header nav {
 	width: 100%;
 	background-color: rgb(75, 75, 75);
-	border-bottom: .5em solid greenyellow;
+	border-bottom: .5em solid greenyellow;	
 	background-image: url(img/color_splash.png);
 	background-position: 50% 0%;
 	background-size: 100%;
@@ -80,11 +80,11 @@ nav a:active {
 		endColorstr='#adff2f', GradientType=0 );
 }
 
-section.olakase a {
+section.section a {
 	color: gray;
 }
 
-section.olakase em {
+section.section em {
 	font-weight: bold;
 }
 
