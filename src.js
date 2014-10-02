@@ -62,7 +62,7 @@ function NavBarUpdate() {
 
 function AddFlickrSlideshow() {
 	$(".flick-dependent").removeClass("flick-dependent");
-	$(".flickr-embedded")
+	/*$(".flickr-embedded")
 			.click(
 					function() {
 						var g = $("#flickr-gallery").parent();
@@ -81,7 +81,7 @@ function AddFlickrSlideshow() {
 													+ '" frameBorder="0" scrolling="no"></iframe>');
 						}
 						return false;
-					});
+					});*/
 	$("#flickr-gallery").parent().click(function() {
 		$(this).addClass("hidden");
 	});
