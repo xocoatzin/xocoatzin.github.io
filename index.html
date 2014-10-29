@@ -86,28 +86,30 @@ $(function(){
 			.attr('data-url', button.action.url)
 			.addClass("button")
 			.click(function(){
-			$("div.top-bar .button").removeClass("active");
-			$(this).addClass("active");
-			
-			if($("#"+$(this).attr('data-target')).length) 
-			{
-				$(".panel")
-					.removeClass("active");
-				$("#"+$(this).attr('data-target'))
-					.addClass("active");
-			} 
-			else
-			{
-				var panel = $('<iframe width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;width=100%;height=100" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>');
-				panel
-					.attr('id', $(this).attr('data-target'))
-					.attr('src', $(this).attr('data-url'))
-					.addClass("panel")
-					.addClass("active");
+				$("div.top-bar .button").removeClass("active");
+				$(this).addClass("active");
 				
-				$("div.content").append(panel);
-			}
-		});
+				if($("#"+$(this).attr('data-target')).length) 
+				{
+					$(".panel")
+						.removeClass("active");
+					$("#"+$(this).attr('data-target'))
+						.addClass("active");
+				} 
+				else
+				{
+					var panel = $('<iframe width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;width=100%;height=100" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>');
+					panel
+						.attr('id', $(this).attr('data-target'))
+						.attr('src', $(this).attr('data-url'))
+						.addClass("panel")
+						.addClass("active");
+					
+					$("div.content").append(panel);
+				}
+				
+				window.location.hash = $(this).attr("data-target");
+			});
 		$("div.top-bar").append(newBt);
 	}
 	var b;
@@ -120,7 +122,6 @@ $(function(){
 		b = $( "div.top-bar .button" ).first();
 	}
 	b.trigger( "click");
-	window.location.hash = b.attr("data-target");
 });
 </script>
 </body>
