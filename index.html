@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <title>Alan Torres-G&oacute;mez</title>
-<link rel="stylesheet" href="style.css" />
 <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -15,201 +14,95 @@
 
   ga('create', 'UA-43780610-2', 'auto');
   ga('send', 'pageview');
-
 </script>
+<style>
+body {margin: 0; font-family: monospace;}
+div.wrap {background-color: white;width: 100%;height: 100%;position: absolute;}
+
+div.top-bar {background-color: rgb(82, 82, 82);width: 100%;height: 3em;color: white;font-size: 1.3em;}
+
+div.button {background-color: rgb(33, 131, 144);height: 100%;display: inline-block;padding: 0 1em;}
+div.button:hover, div.button.active {background-color: rgb(53, 163, 178);cursor: pointer;}
+div.button span { display:inline-block; position: relative; top: 50%; transform: translateY(-50%); }
+
+.noselect, .noselect * {-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+
+div.content {background-color: white;width: 100%;top: 4em;bottom: 0;position: absolute;}
+div.content .panel { background-color: teal;display: none;left: 0;right: 0;top: 0;bottom: 0;position: absolute;}
+div.content .panel.active {display: block;}
+</style>
 </head>
-<body id="s-home">
-	<header>
-		<h1>Alan Torres-G&oacute;mez</h1>
-		<div id="notification-anchor"></div>
-		<nav>
-			<a href="#s-home" class="scroll">HOME</a><a href="#s-about"
-				class="scroll">ABOUT</a><a href="#s-projects" class="scroll">PROJECTS</a><a
-				target="_blank" href="http://www.flickr.com/photos/alanfctor/"
-				class="js-dependent flick-dependent flickr-embedded">PHOTOGRAPHY</a><a
-				href="#s-contact" class="scroll">CONTACT</a>
-		</nav>
-	</header>
-	<div style="background: bisque;padding: 1em;">Under a *very* slow construction...</div>
+<body>
+<div class="wrap">
+<div class="top-bar noselect"></div>
+<div class="content"></div>
+</div>
 
-	<section id="s-welcome" class="section">
-		<h1></h1>
-		<p></p>
-	</section>
-
-	<section id="s-about" class="section">
-		<h1>About</h1>
-		<p>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+var DATA = {
+	buttons: [
+		{
+			id: "bt-about",
+			content: "About",
+			action: {
+				target: "about",
+				url: "https://sway.com/s/4iqxB1wTgbbBSDMO/embed"
+			}
+		},
+		{
+			id: "bt-projects",
+			content: "Projects",
+			action: {
+				target: "projects",
+				url: "https://sway.com/s/S72jEs-r-7nr1Da8/embed"
+			}
+		},
+		{
+			id: "bt-photo",
+			content: "Photography",
+			action: {
+				target: "photo",
+				url: "https://www.flickr.com/photos/alanfctor/sets/72157635379377263/player/"
+			}
+		}
+	]
+};
+$(function(){
+	for(id in DATA.buttons)
+	{
+		var button = DATA.buttons[id];
+		var newBt = $('<div id="'+button.id+'"><span>'+button.content+'</span></div>');
+		newBt
+			.attr('data-target', button.action.target)
+			.attr('data-url', button.action.url)
+			.addClass("button")
+			.click(function(){
+			$("div.top-bar .button").removeClass("active");
+			$(this).addClass("active");
 			
-		</p>
-	</section>
-
-	<section id="s-projects" class="section">
-		<h1>Projects</h1>
-		<section class="project">
-            <h2>Recognition and reconstruction of transparent objects for Augmented Reality</h2>
-            <h3>Abstract</h3>
-            <p>
-                Dealing with real transparent objects for AR is challenging due to their lack of texture and visual features as well as the drastic changes in appearance as the background, illumination and camera pose change. The few existing methods for glass object detection usually require a carefully controlled environment, specialized illumination hardware or ignore information from different viewpoints.
-            </p>
-            <p>
-                In this work, we explore the use of a learning approach for classifying transparent objects from multiple images with the aim of both discovering such objects and building a 3D reconstruction to support convincing augmentations. We extract, classify and group small image patches using a fast graph-based segmentation and employ a probabilistic formulation for aggregating spatially consistent glass regions. We demonstrate our approach via analysis of the performance of glass region detection and example 3D reconstructions that allow virtual objects to interact with them
-            </p>
-            <h3>Links</h3>
-            <ul>
-				<li><em>ISMAR 2014</em>
-					<a target="_blank"
-                    href="http://www.cs.bris.ac.uk/Publications/Papers/2001714.pdf">Paper <span class="link-ref">[cs.bris.ac.uk]</span></a>
-					<a target="_blank"
-                    href="https://app.box.com/s/ycpbvhekjporcuq2uxzb">Slides <span class="link-ref">[box.com]</span></a>
-					<a target="_blank"
-                    href="https://www.youtube.com/watch?v=0Js2jO9ZcXo&list=PL7sE-hbk1aO5bJ2BYLvknWcC3CSZk2Wgv">Videos <span class="link-ref">[youtube.com]</span></a>
-                </li>
-                <li><em>WARM 2014</em> <a target="_blank"
-                    href="https://app.box.com/s/i36bsd1zfu7b7modfkft">Slides <span class="link-ref">[box.com]</span></a>
-                </li>
-            </ul>
-            <h3>Sponsors</h3>
-            <ul>
-                <li> 
-                    <a target="_blank" href="http://www.bristol.ac.uk/alumni/current-students/foundation/">
-                        University of Bristol, Alumni Foundation
-                    </a>
-                </li>  
-                <li> 
-                    <a target="_blank" href="http://www.conacyt.gob.mx/">
-                        CONACYT
-                    </a>
-                </li>  
-            </ul> 
-        </section>
-		<section class="project">
-			<h2>Ixnamiki & Ixnamiki &Ouml;me Rescue Robots</h2>
-			<p>
-				<em>Ixnamiki</em> and <em>Ixnamiki &Ouml;me</em> are two exploration
-				and rescue robot designed and developed by engineering students at
-				the Universidad Panamericana campus Bonaterra in Aguascalientes
-				M&eacute;xico.
-			</p>
-			<p>
-				The word <em>Ixnamiki</em> is a nahuatl verb that translates to "to
-				find people", <em>&Ouml;me</em> is the nahuatl word for "the
-				second".
-			</p>
-			<p>
-				<em>Ixnamiki Rescue Robot</em> was originally designed to
-				participate on the "Exploration and Rescue League" of the RoboCup (a
-				international robotics competition). It has participated on the
-				RoboCup Singapore 2010, IranOpen 2010, RoboCup Istambul 2011,
-				RoboCup Mexico City 2012 and RoboCup 2013.
-			</p>
-			<h3>Links</h3>
-			<ul>
-				<li><em>Ixnamiki project on Facebook</em> <a target="_blank"
-					href="https://www.facebook.com/pages/Ixnamiki-Rescue-Robot/167187343319562">https://www.facebook.com/pages/Ixnamiki-Rescue-Robot/167187343319562</a>
-				</li>
-				<li><em>Ixnamiki &Ouml;me</em>
-					<ul>
-						<li>[vimeo.com] <a target="_blank"
-							href="https://vimeo.com/43314763">Oficial video 2</a></li>
-						<li>[up.edu.mx | spanish] <a target="_blank"
-							href="http://www.up.edu.mx/document.aspx?doc=27793">Tercer
-								lugar para el robot de ingenier&iacute;as UP en la Robocup
-								realizada en Turqu&iacute;a </a></li>
-						<li>[vivirmexico.com | spanish] <a target="_blank"
-							href="http://vivirmexico.com/2011/07/ingenieros-mexicanos-ganan-el-tercer-lugar-en-robocup2011">Ingenieros
-								mexicanos ganan el tercer lugar en RoboCup2011 </a></li>
-						<li>[palestraaguascalientes.com | spanish] <a target="_blank"
-							href="http://www.palestraaguascalientes.com/alumnos-de-la-up-bonaterra-ganan-tercer-lugar-en-robocup-2011/">Alumnos
-								de la UP Bonaterra Ganan Tercer Lugar en RoboCup 2011 </a></li>
-						<li>[universia.net.mx | spanish] <a target="_blank"
-							href="http://noticias.universia.net.mx/ciencia-nn-tt/noticia/2011/07/22/850203/jovenes-mexicanos-tercer-lugar-robocup-2011.html">Para
-								jóvenes mexicanos, el tercer lugar de RoboCup 2011 </a></li>
-						<li>[youtube] <a target="_blank"
-							href="http://www.youtube.com/watch?v=m0_DuxNlL98">Oficial
-								video </a></li>
-						<li>[youtube] <a target="_blank"
-							href="http://www.youtube.com/watch?v=dl1LLjqa-U0">Testing
-								video </a></li>
-						<li>[aztecanoticias.com.mx | spanish] <a target="_blank"
-							href="http://www.aztecanoticias.com.mx/notas/tecnologia/55415/crean-robot-para-competir-en-encuentro-internacional">Crean
-								robot para competir en encuentro internacional </a></li>
-						<li>[robotikka.com | spanish] <a target="_blank"
-							href="http://www.robotikka.com/3591/nuevos-robots-disenados-para-competir-internacionalmente/">Nuevos
-								robots diseñados para competir internacionalmente </a></li>
-						<li>[culturewav.es | spanish] <a target="_blank"
-							href="http://culturewav.es/public_thought/114887">Nota </a></li>
-						<li>[ultra.com.mx | spanish] <a target="_blank"
-							href="http://www.ultra.com.mx/noticias/aguascalientes/Local/19451-alumnos-de-la-up-viajan-a-iran.html">Alumnos
-								de la UP viajan a Ir&aacute;n </a></li>
-					</ul></li>
-				<li><em>Ixnamiki I</em>
-					<ul>
-						<li>[robocup2010.org] <a target="_blank"
-							href="http://www.robocup2010.org/competition_League.php?c=2&l=7&t=team">Registered
-								teams </a></li>
-						<li>[youtube.com] <a target="_blank"
-							href="http://www.youtube.com/watch?v=Qk9piXAOugM">Car
-								exploration testing </a></li>
-						<li>[facebook.com] <a target="_blank"
-							href="https://www.facebook.com/media/set/?set=a.488149742194.295951.205809292194&type=1">Pictures
-								from the robot and events </a></li>
-						<li>[lja.mx | spanish] <a target="_blank"
-							href="http://www.lja.mx/2010/03/podria-ixnamiki-apoyar-en-rescate-de-terremotos-y-disipar-rinas-sin-uso-policial/">Podría
-								Ixnamiki apoyar en rescate de terremotos y disipar ri&ntilde;as
-								sin uso policial</a></li>
-					</ul></li>
-			</ul>
-		</section>
-	</section>
-
-	<section id="s-contact" class="section">
-		<h1>Contact</h1>
-		<ul>
-			<li><em>Resum&eacute;</em>Available by request</li>
-			<li><em>E-mail</em> <span class="email">Alan (d o t)
-					TorresGomez (a t) bris (d o t) ac (d o t) uk</span></li>
-			<li><em>About me</em> <a target="_blank"
-                href="http://about.me/xoocooatzin">about.me/xoocooatzin</a></li>
-			<li><em>Twitter</em> <a target="_blank"
-				href="https://twitter.com/alan7orres">@alan7orres</a></li>
-			<li><em>Flickr</em> <a target="_blank"
-				href="http://flickr.com/alanfctor">flickr.com/alanfctor</a></li>
-			<li><em>500px</em> <a target="_blank"
-                href="http://500px.com/xocoatzin">500px.com/xocoatzin</a></li>
-			<li><em>Linked in</em> <a target="_blank"
-				href="http://uk.linkedin.com/pub/alan-francisco-torres-gomez/33/99/295/">uk.linkedin.com/pub/alan-francisco-torres-gomez/33/99/295/</a>
-			</li>
-			<li><em>Git Hub</em> <a target="_blank"
-				href="http://github.com/xocoatzin">github.com/xocoatzin</a></li>
-			<li><em>Stack overflow</em> <a target="_blank"
-				href="http://stackoverflow.com/users/575085/xocoatzin">stackoverflow.com/users/575085/xocoatzin</a>
-			</li>
-		</ul>
-	</section>
-
-	
-	<footer>
-		<h2>Alan Torres-G&oacute;mez</h2>
-		<br> <span class="email">Alan (d o t) TorresGomez (a t)
-			bris (d o t) ac (d o t) uk</span> <br> University of Bristol <br>
-		Visual Information Lab.
-	</footer>
-
-	<div class="overlay-container hidden flickr-embedded">
-		<div id="flickr-gallery"><div style='position: relative; padding-bottom: 101%; height: 0; overflow: hidden;'><iframe id='iframe' src='http://flickrit.com/slideshowholder.php?height=100&size=big&setId=72157635379377263&thumbnails=0&transition=0&layoutType=responsive&sort=0' scrolling='no' frameborder='0'style='width:100%; height:100%; position: absolute; top:0; left:0;' ></iframe></div></div>
-		<div id="flickr-gallery-notes">
-			<h1>Photography</h1>
-			<p>
-				I do photography on my spare time, here some highlights. You can see
-				more on my <a target="_blank" href="http://flickr.com/alanfctor">Flickr</a>
-				profile.
-			</p>
-		</div>
-	</div>
-
-	<script
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="src.js"></script>
+			if($("#"+$(this).attr('data-target')).length) 
+			{
+				$(".panel")
+					.removeClass("active");
+				$("#"+$(this).attr('data-target'))
+					.addClass("active");
+			} 
+			else
+			{
+				var panel = $('<iframe width="100%" height="100%" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border: none;width=100%;height=100" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>');
+				panel
+					.attr('id', $(this).attr('data-target'))
+					.attr('src', $(this).attr('data-url'))
+					.addClass("panel")
+					.addClass("active");
+				
+				$("div.content").append(panel);
+			}
+		});
+		$("div.top-bar").append(newBt);
+	}
+});
+</script>
 </body>
 </html>
