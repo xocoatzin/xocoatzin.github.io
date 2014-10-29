@@ -28,7 +28,7 @@ div.button span { display:inline-block; position: relative; top: 50%; transform:
 .noselect, .noselect * {-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
 
 div.content {background-color: white;width: 100%;top: 4em;bottom: 0;position: absolute;}
-div.content .panel { background-color: teal;display: none;left: 0;right: 0;top: 0;bottom: 0;position: absolute;}
+div.content .panel { background-color: white;display: none;left: 0;right: 0;top: 0;bottom: 0;position: absolute;}
 div.content .panel.active {display: block;}
 </style>
 </head>
@@ -102,6 +102,7 @@ $(function(){
 		});
 		$("div.top-bar").append(newBt);
 	}
+	$( "div.top-bar .button" ).first().trigger( "click");
 });
 </script>
 </body>
