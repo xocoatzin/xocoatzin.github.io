@@ -110,7 +110,17 @@ $(function(){
 		});
 		$("div.top-bar").append(newBt);
 	}
-	$( "div.top-bar .button" ).first().trigger( "click");
+	var b;
+	if(window.location.hash)
+	{
+		b = $("div.top-bar .button[data-target="+window.location.hash.substr(1)+"]").first();
+	}
+	if(!b.length)
+	{
+		b = $( "div.top-bar .button" ).first();
+	}
+	b.trigger( "click");
+	window.location.hash = b.attr("data-target");
 });
 </script>
 </body>
