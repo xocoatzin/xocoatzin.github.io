@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
+<link rel="shortcut icon" href="favicon.ico">
 <title>Alan Torres-G&oacute;mez</title>
 <!--[if IE]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -112,7 +113,7 @@ $(function(){
 			});
 		$("div.top-bar").append(newBt);
 	}
-	var b;
+	var b = [];
 	if(window.location.hash)
 	{
 		b = $("div.top-bar .button[data-target="+window.location.hash.substr(1)+"]").first();
